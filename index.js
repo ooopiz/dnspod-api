@@ -54,12 +54,9 @@ var DnspodApi = function(config){
         var deferred = Q.defer();
         
         // console.log(config);
-        
-        // deal with different between dnspod.com and ddnsapi.cn
-        if(config.server == 'dnspod.com'){
-            args.params.user_token = config.token;
-        }else{
-            args.params.login_token = config.token;
+        args.params.login_token = config.token;
+
+        if(config.server == 'dnspod.cn'){
             args.params.lang = 'cn';
         }
         
